@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Get a thumbnail from YouTube</title>
+    <title>Get Thumbnail of a Video</title>
     <style>
       *,
       *:before, *:after {
@@ -19,7 +19,7 @@
         padding: 0;
       }
 
-      section#get-youtube-thumbnail {
+      section#main {
         font-size: 1.4rem;
         line-height: 1.4;
         margin: 0 auto 3rem;
@@ -72,8 +72,8 @@
       }
 
       input[type=submit] {
-        background-color: #990000;
-        border: 1px solid #990000;
+        background-color: #E51717;
+        border: 1px solid #E51717;
         color: #f7f7f7;
         margin-top: 0.7rem;
         padding: 0.25rem 5%;
@@ -81,8 +81,8 @@
 
       input[type=submit]:hover,
       input[type=submit]:focus {
-        border-color: #E51717;
-        background-color: #E51717;
+        border-color: #990000;
+        background-color: #990000;
       }
 
       img {
@@ -92,7 +92,7 @@
     </style>
   </head>
   <body>
-    <section id="get-youtube-thumbnail">
+    <section id="main">
       <h1>Get a thumbnail from YouTube</h1>
       <p>Have you ever needed a thumbnail of a video hosted on YouTube? Use this form to get it, and download it straight away …</p>
       <form>
@@ -102,7 +102,7 @@
       </form>
     </section>
     <script>
-      var section = document.getElementById('get-youtube-thumbnail');
+      var section = document.getElementById('main');
       var videoURL = document.getElementById('video-url');
       var getURL = document.getElementById('submit');
 
