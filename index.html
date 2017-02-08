@@ -129,24 +129,41 @@
       }());
 
       var appendThumb = (function(e) {
-        var container = document.createElement('div');
-        var headline = document.createElement('h2');
-        var paragraph = document.createElement('p');
+        // run Youtube-function to get thumb from videoURL.value
         var thumbSRC = Youtube.thumb(videoURL.value);
-        var thumbLINK = document.createElement('a');
-        var thumbIMG = document.createElement('img');
+
+        // create container
+        var container = document.createElement('div');
+
+        // Set headline
+        var headline = document.createElement('h2');
         headline.innerHTML = "Here you go:";
+
+        // Set paragraph
+        var paragraph = document.createElement('p');
         paragraph.innerHTML = "The Thumbnail is associated to <a href='"+ videoURL.value +"' title='Link to video' target='_blank'>this video</a>. Please use it according to the copyrights.";
+
+        // Set image
+        var thumbIMG = document.createElement('img');
         thumbIMG.src = thumbSRC;
         thumbIMG.alt = "Thumbnail of Video";
+
+        // Set link to download image, containing image
+        var thumbLINK = document.createElement('a');
         thumbLINK.href = thumbSRC;
         thumbLINK.title = "Download Thumbnail";
         thumbLINK.setAttribute('download', 'thumbnail');
         thumbLINK.appendChild(thumbIMG);
+
+        // Append Headline to the container
         container.appendChild(headline);
+        // Append link containing image to the container
         container.appendChild(thumbLINK);
+        // Append paragraph to the container
         container.appendChild(paragraph);
+        // Append container to the section
         section.appendChild(container);
+        // prevent the form to submit and reload page
         e.preventDefault();
       });
 
