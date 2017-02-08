@@ -120,7 +120,7 @@
           results = url.match(/(youtu(?:\.be|be\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([\w'-]+))/i);
           video   = (results === null) ? url : results[2];
 
-          return 'http://img.youtube.com/vi/' + video + '/maxresdefault.jpg';
+          return 'https://img.youtube.com/vi/' + video + '/maxresdefault.jpg';
         };
 
         return {
