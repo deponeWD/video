@@ -2,6 +2,14 @@ var section = document.getElementById('main');
 var container = document.getElementById('result');
 var videoURL = document.getElementById('video-url');
 var getURL = document.getElementById('submit');
+var focusInput = document.getElementById('focus-input');
+
+focusInput.addEventListener('click', setFocus);
+
+function setFocus (e) {
+  videoURL.focus();
+  e.preventDefault();
+}
 
 function parseURL (url) {
     // - Supported YouTube URL formats:
