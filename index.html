@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="Daniel Ehniss, DEPONE Netzgestaltung">
+    <meta name="keywords" content="Video, Thumbnail, Vimeo, YouTube, Javascript">
+    <meta name="description" content="A tool to get thumbnail of video hosted on YouTube or Vimeo.">
     <title>Get Thumbnail of a Video</title>
     <style>
       *,
@@ -11,8 +15,8 @@
       }
 
       body {
-        background-color: #f7f7f7;
-        color: #333;
+        background-color: rgb(247,247,247);
+        color: rgb(51,51,51);
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-size: 100%;
         margin: 0;
@@ -32,6 +36,21 @@
         line-height: 1;
       }
 
+      a,
+      a:visited {
+        color: rgb(229,23,23);
+        transition: color 0.2s ease-out;
+      }
+
+      a:hover,
+      a:focus {
+        color: rgb(153,0,0);
+      }
+
+      p.additional {
+        font-size: 0.7em;
+      }
+
       form {
         background-color: #ccc;
         border-radius: 3px;
@@ -45,7 +64,8 @@
         display: block;
       }
 
-      input {
+      input,
+      a.download {
         border: 1px solid;
         border-radius: 3px;
         display: block;
@@ -60,46 +80,41 @@
       }
 
       input[type=url] {
-        background-color: #f7f7f7;
+        background-color: rgb(247,247,247);
         margin-top: 0.6rem;
         width: 100%;
       }
 
       input[type=url]:focus {
-        background-color: #fff;
-        border-color: #E51717;
+        background-color: rgb(255,255,255);
+        border-color: rgb(229,23,23);
         box-shadow: 0 0 0.3125rem rgba(229,23,23,0.5);
-        color: #E51717;
+        color: rgb(229,23,23);
       }
 
-      input[type=submit] {
-        background-color: #E51717;
-        border: 1px solid #E51717;
-        color: #f7f7f7;
+      input[type=submit],
+      a.download {
+        background-color: rgb(229,23,23);
+        border: 1px solid rgb(229,23,23);
+        color: rgb(247,247,247);
         margin-top: 0.7rem;
         padding: 0.25rem 5%;
+        text-align: center;
+        text-decoration: none;
       }
 
       input[type=submit]:hover,
-      input[type=submit]:focus {
-        border-color: #990000;
-        background-color: #990000;
+      input[type=submit]:focus,
+      a.download:hover,
+      a.download:focus {
+        border-color: rgb(153,0,0);
+        background-color: rgb(153,0,0);
+        color: rgb(255,255,255);
       }
 
       img {
         height: auto;
         width: 100%;
-      }
-
-      a,
-      a:visited {
-        color: #E51717;
-        transition: color 0.2s ease-out;
-      }
-
-      a:hover,
-      a:focus {
-        color: #990000;
       }
     </style>
   </head>
@@ -148,7 +163,6 @@
       }
 
       var appendThumb = (function(e) {
-        // var thumbSRC = Youtube.thumb(videoURL.value);
         var videoDetails = parseURL(videoURL.value);
         var videoType = videoDetails.type;
         var videoID = videoDetails.id;
@@ -189,6 +203,7 @@
 
         // Set paragraph
         var paragraph = document.createElement('p');
+        paragraph.setAttribute('class', 'additional');
         if ((videoType == 'youtube') || (videoType == 'vimeo')) {
           paragraph.innerHTML = "The Thumbnail is associated to <a href='"+ videoURL.value +"' title='Link to video' target='_blank'>this video</a>. Please use it according to the copyrights.";
         }
@@ -209,16 +224,19 @@
             thumbLINK.href = thumbSRC;
           }
           thumbLINK.title = "Download Thumbnail";
+          thumbLINK.text = "Download Thumbnail";
+          thumbLINK.setAttribute('class', 'download');
           thumbLINK.setAttribute('download', 'thumbnail');
-          thumbLINK.appendChild(thumbIMG);
         }
 
         // Append Headline to the container
         container.appendChild(headline);
         // Append link containing image to the container
         if ((videoType == 'youtube') || (videoType == 'vimeo')) {
-          container.appendChild(thumbLINK);
+          container.appendChild(thumbIMG);
         }
+        // Append download-link
+        container.appendChild(thumbLINK);
         // Append paragraph to the container
         container.appendChild(paragraph);
         // Append container to the section
