@@ -155,7 +155,7 @@
         if (videoType == 'youtube') {
           var thumbSRC = 'https://img.youtube.com/vi/' + videoID + '/maxresdefault.jpg';
         } else if (videoType == 'vimeo') {
-          jQuery.getJSON('http://vimeo.com/api/v2/video/' + videoID + '.json?callback=?', {format: "json"}, function(data, status) {
+          jQuery.getJSON('https://vimeo.com/api/v2/video/' + videoID + '.json?callback=?', {format: "json"}, function(data, status) {
             thumbSRC = data[0].thumbnail_large;
             thumbIMG.src = thumbSRC;
             thumbLINK.href = thumbSRC;
