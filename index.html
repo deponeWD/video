@@ -22,7 +22,7 @@
       section#main {
         font-size: 1.4rem;
         line-height: 1.4;
-        margin: 0 auto 3rem;
+        margin: 3rem auto;
         max-width: 680px;
         width: 90%;
       }
@@ -56,7 +56,7 @@
         outline: none;
         -moz-appearance: none;
         -webkit-appearance: none;
-        transition: color 0.2s ease-out, border-color 0.2s ease-out, background-color 0.2s ease-out;
+        transition: color 0.2s ease-out, border-color 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
       }
 
       input[type=url] {
@@ -68,6 +68,7 @@
       input[type=url]:focus {
         background-color: #fff;
         border-color: #E51717;
+        box-shadow: 0 0 0.3125rem rgba(229,23,23,0.5);
         color: #E51717;
       }
 
@@ -114,7 +115,6 @@
       <div id="result">
       </div>
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
       var section = document.getElementById('main');
       var container = document.getElementById('result');
@@ -156,11 +156,25 @@
           var thumbSRC = 'https://img.youtube.com/vi/' + videoID + '/maxresdefault.jpg';
         }
         else if (videoType == 'vimeo') {
-          jQuery.getJSON('https://vimeo.com/api/v2/video/' + videoID + '.json?callback=?', {format: "json"}, function(data, status) {
-            thumbSRC = data[0].thumbnail_large;
-            thumbIMG.src = thumbSRC;
-            thumbLINK.href = thumbSRC;
-          });
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "https://vimeo.com/api/v2/video/"+ videoID +".json", true);
+          xhr.onload = function (e) {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                var data = xhr.responseText;
+                var parsedData = JSON.parse(data);
+                thumbSRC = parsedData[0].thumbnail_large;
+                thumbIMG.src = thumbSRC;
+                thumbLINK.href = thumbSRC;
+              } else {
+                console.error(xhr.statusText);
+              }
+            }
+          };
+          xhr.onerror = function (e) {
+            console.error(xhr.statusText);
+          };
+          xhr.send(null);
         }
 
         // Clear content of container
