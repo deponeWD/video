@@ -1,0 +1,107 @@
+*,
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(247,247,247);
+  color: rgb(51,51,51);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+section#main {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin: 3rem auto;
+  max-width: 680px;
+  width: 90%;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1;
+}
+
+a,
+a:visited {
+  color: rgb(229,23,23);
+  transition: color 0.2s ease-out;
+}
+
+a:hover,
+a:focus {
+  color: rgb(153,0,0);
+}
+
+p.additional {
+  font-size: 0.7em;
+}
+
+form {
+  background-color: #ccc;
+  border-radius: 3px;
+  border: 1px solid;
+  padding: 1em 5%;
+  width: 100%;
+}
+
+label {
+  line-height: 1;
+  display: block;
+}
+
+input,
+a.download {
+  border: 1px solid;
+  border-radius: 3px;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.25rem 1.5%;
+  margin: 0;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  transition: color 0.2s ease-out, border-color 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+input[type=url] {
+  background-color: rgb(247,247,247);
+  margin-top: 0.6rem;
+  width: 100%;
+}
+
+input[type=url]:focus {
+  background-color: rgb(255,255,255);
+  border-color: rgb(229,23,23);
+  box-shadow: 0 0 0.3125rem rgba(229,23,23,0.5);
+  color: rgb(229,23,23);
+}
+
+input[type=submit],
+a.download {
+  background-color: rgb(229,23,23);
+  border: 1px solid rgb(229,23,23);
+  color: rgb(247,247,247);
+  margin-top: 0.7rem;
+  padding: 0.25rem 5%;
+  text-align: center;
+  text-decoration: none;
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus,
+a.download:hover,
+a.download:focus {
+  border-color: rgb(153,0,0);
+  background-color: rgb(153,0,0);
+  color: rgb(255,255,255);
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
