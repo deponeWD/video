@@ -53,7 +53,11 @@ var appendThumb = (function(e) {
         if (xhr.status === 200) {
           var data = xhr.responseText;
           var parsedData = JSON.parse(data);
-          thumbSRC = parsedData[0].thumbnail_large;
+          thumbSRClarge = parsedData[0].thumbnail_large;
+          // split url of large thumbnail at 640
+          thumbSplit = thumbSRClarge.split(/\d{3}(?=.jpg)/);
+          // add 1280 to parts and get bigger thumbnail
+          thumbSRC = thumbSplit[0] + 1280 + thumbSplit[1];
           thumbIMG.src = thumbSRC;
           thumbLINK.href = thumbSRC;
         } else {
