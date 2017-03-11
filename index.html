@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="./style.css" type="text/css" media="all">
   </head>
   <body>
-    <section id="main">
+    <section id="main" class="main-wrapper">
       <h1>Get Thumbnail of a Video</h1>
       <p>Have you ever needed a thumbnail of a video hosted on <strong>YouTube</strong> or <strong>Vimeo</strong>? Look no further! Just copy the URL of the video in question, paste it into <a id="focus-input" href="#video-url">this field</a> and get the Thumbnail:</p>
-      <form>
-        <label for="video-url">Paste URL of video into this field:</label>
-        <input id="video-url" type="url" placeholder="https://youtube.com/... or https://vimeo.com/..."/>
-        <input id="submit" type="submit" value="Get Thumbnail">
+      <form class="main-form">
+        <label class="label" for="video-url">Paste URL of video into this field:</label>
+        <input class="input" id="video-url" type="url" placeholder="https://youtube.com/... or https://vimeo.com/..."/>
+        <input class="btn" id="submit" type="submit" value="Get Thumbnail">
       </form>
       <div id="result">
       </div>

@@ -12,7 +12,7 @@ body {
   padding: 0;
 }
 
-section#main {
+.main-wrapper {
   font-size: 1.4rem;
   line-height: 1.4;
   margin: 3rem auto;
@@ -40,7 +40,7 @@ p.additional {
   font-size: 0.7em;
 }
 
-form {
+.main-form {
   background-color: #ccc;
   border-radius: 3px;
   border: 1px solid;
@@ -68,21 +68,20 @@ a.download {
   transition: color 0.2s ease-out, border-color 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-input[type=url] {
+input[type="url"] {
   background-color: rgb(247,247,247);
   margin-top: 0.6rem;
   width: 100%;
 }
 
-input[type=url]:focus {
+input[type="url"]:focus {
   background-color: rgb(255,255,255);
   border-color: rgb(229,23,23);
   box-shadow: 0 0 0.3125rem rgba(229,23,23,0.5);
   color: rgb(229,23,23);
 }
 
-input[type=submit],
-a.download {
+.btn {
   background-color: rgb(229,23,23);
   border: 1px solid rgb(229,23,23);
   color: rgb(247,247,247);
@@ -92,10 +91,8 @@ a.download {
   text-decoration: none;
 }
 
-input[type=submit]:hover,
-input[type=submit]:focus,
-a.download:hover,
-a.download:focus {
+.btn:hover,
+.btn:focus {
   border-color: rgb(153,0,0);
   background-color: rgb(153,0,0);
   color: rgb(255,255,255);

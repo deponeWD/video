@@ -104,7 +104,7 @@ var appendThumb = (function(e) {
     }
     thumbLINK.title = "Download Thumbnail";
     thumbLINK.text = "Download Thumbnail";
-    thumbLINK.setAttribute('class', 'download');
+    thumbLINK.setAttribute('class', 'download btn');
     thumbLINK.setAttribute('target', '_blank');
     thumbLINK.setAttribute('download', 'thumbnail');
   }
