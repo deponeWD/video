@@ -12,12 +12,16 @@ body {
   padding: 0;
 }
 
-.main-wrapper {
-  font-size: 1.4rem;
+.main-wrapper,
+.page-footer {
   line-height: 1.4;
   margin: 3rem auto;
   max-width: 680px;
   width: 90%;
+}
+
+.main-wrapper {
+  font-size: 1.4rem;
 }
 
 h1 {
