@@ -54,7 +54,6 @@ var appendThumb = (function(e) {
           var data = xhr.responseText;
           var parsedData = JSON.parse(data);
           thumbSRClarge = parsedData[0].thumbnail_large;
-          console.log(thumbSRClarge);
           // split url of large thumbnail at 640
           thumbSplit = thumbSRClarge.split(/(\d+)(?!.*\d)/);
           // add 1280x720 to parts and get bigger thumbnail
